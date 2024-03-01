@@ -1,11 +1,21 @@
 <template>
-
+  <div class="container">
+    <section class="row">
+      <div class="col-md-12">
+        <h1>Posts</h1>
+      </div>
+      <div v-for="post in posts" :key="post.id" class="col-12">
+        {{ post }}
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
-import { onMounted } from "vue";
+import { computed, onMounted } from "vue";
 import Pop from "../utils/Pop.js";
 import { postsService } from "../services/PostsService.js"
+import { AppState } from "../AppState.js"
 
 export default {
   setup() {
@@ -21,7 +31,7 @@ export default {
       getPosts()
     })
     return {
-      
+      posts: computed(() => AppState.posts)
     }
   }
 }

@@ -1,5 +1,5 @@
 export class Post {
-  constructor() {
+  constructor(data) {
     this.body = data.body || ''
     this.createdAt = new Date(data.createdAt) || new Date()
     this.creator = data.creator || ''
