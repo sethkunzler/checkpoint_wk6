@@ -1,14 +1,10 @@
 <template>
-  <header>
+  <header class="sticky-top">
     <Navbar />
   </header>
-  <main>
-    
+  <main class="d-flex justify-content-end width25">
     <router-view />
   </main>
-   <footer class="bg-warning text-dark">
-    Made by Seth Kunzler @ Boise CodeWorks
-  </footer>
 </template>
 
 <script>
@@ -32,10 +28,4 @@ export default {
   --main-height: calc(100vh - 32px - 64px);
 }
 
-
-footer {
-  display: grid;
-  place-content: center;
-  height: 32px;
-}
 </style>

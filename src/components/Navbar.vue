@@ -1,8 +1,8 @@
 <template>
   <nav class="navbar navbar-expand-sm bg-primary bg-gradient text-light px-3">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex flex-row align-items-center text-light">
-        <img alt="logo" src="../assets/img/n-logo.png" height="45" />ETWORK
+      <div class="d-flex flex-row align-items-center text-light selectable p-2 rounded">
+        <span class="d-flex align-items-center" title="logo"><img alt="N" src="../assets/img/n-logo.png" height="45"/>ETWORK</span>
       </div>
     </router-link>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -31,7 +31,7 @@
 <script>
 import { onMounted, ref } from 'vue';
 import { loadState, saveState } from '../utils/Store.js';
-import Login from './Login.vue';
+// import Login from './Login.vue';
 export default {
   setup() {
 
@@ -50,7 +50,7 @@ export default {
       }
     }
   },
-  components: { Login }
+  // components: { Login }
 }
 </script>
 
