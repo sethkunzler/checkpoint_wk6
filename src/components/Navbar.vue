@@ -1,8 +1,8 @@
 <template>
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark px-3">
+  <nav class="navbar navbar-expand-sm bg-primary bg-gradient text-light px-3">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex flex-column align-items-center">
-        <img alt="logo" src="../assets/img/cw-logo.png" height="45" />
+      <div class="d-flex flex-row align-items-center text-light">
+        <img alt="logo" src="../assets/img/n-logo.png" height="45" />ETWORK
       </div>
     </router-link>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
         <li>
-          <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
+          <router-link :to="{ name: 'About' }" class="btn text-light lighten-30 selectable text-uppercase">
             About
           </router-link>
         </li>
@@ -62,9 +62,12 @@ a:hover {
 .nav-link {
   text-transform: uppercase;
 }
+/* .navbar {
+  background-image: var(--bs-gradient);
+} */
 
 .navbar-nav .router-link-exact-active {
-  border-bottom: 2px solid var(--bs-success);
+  border-bottom: 2px solid var(--bs-light);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }

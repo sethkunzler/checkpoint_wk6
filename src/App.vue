@@ -3,10 +3,11 @@
     <Navbar />
   </header>
   <main>
+    
     <router-view />
   </main>
-   <footer class="bg-dark text-light">
-    Made with 💖 by CodeWorks
+   <footer class="bg-warning text-dark">
+    Made by Seth Kunzler @ Boise CodeWorks
   </footer>
 </template>
 
