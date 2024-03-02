@@ -28,4 +28,15 @@ export default {
   --main-height: calc(100vh - 32px - 64px);
 }
 
+.post-card-creator-picture {
+  height: 8vh;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.bold {
+  font-weight: bold;
+}
+
 </style>
