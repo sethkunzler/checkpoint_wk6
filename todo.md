@@ -1,12 +1,24 @@
-List of todos for the checkpoint: ✅ - done ❌ - todo
+List of todos for the checkpoint: 
+>✅ - done ❌ - todo
 
-Figma Refrence: []
+Figma Refrence: 
+  >Low Fidelity https://docs.google.com/drawings/d/14J73X-mFZmF8fhMpiMK_4wf4xZVeU5brQ-zbXg94R6M/edit
 
-✅ "if it ain't broke don't fix it" - Users Can Register, Login, and Logout
+  >Content Reference https://www.figma.com/file/x663MquEMXJiZ1YvduTNyO/TheNetwork?type=design&node-id=0-1&mode=design&t=MNwGTRUA7TRPqglT-0
 
-❌ The Home page displays all posts, login not required
+✅ "if it ain't broke don't fix it" - Users Can Register, Login, and Logout (using Auth0)
 
-❌Clicking on a post's creator image navigates to that users Profile page [https://sandbox.codeworksacademy.com/api/models/account] ❌The Profile page shows only and all posts made by that user [https://sandbox.codeworksacademy.com/api/models/post] ❌The Profile page includes the users profile details (picture, name, bio, social media links, cover image, alumni status (graduated), class) ❌Refreshing while on the profile page shows its required content
+✅ The Home page displays all posts, login not required
+
+❌Clicking on a post's creator image navigates to that users Profile page 
+  >https://sandbox.codeworksacademy.com/api/models/account 
+
+❌The Profile page shows only and all posts made by that user 
+  >https://sandbox.codeworksacademy.com/api/models/post
+
+❌The Profile page includes the users profile details (picture, name, bio, social media links, cover image, alumni status (graduated), class)
+
+❌Refreshing while on the profile page shows its required content
 
 ❌On Home and Profile pages, users can to navigate to 'older' or 'newer' posts if available
 
@@ -14,13 +26,21 @@ Figma Refrence: []
 
 ❌All posts render all post data (creator name, creator picture, createdAt, body, like count, image)
 
-❌Each page shows at least 2 ads from the api collection [https://sandbox.codeworksacademy.com/api/models/ad]
+❌Each page shows at least 2 ads from the api collection 
+  >https://sandbox.codeworksacademy.com/api/models/ad
 
-❌Once logged in Users can Create Posts ❌Once logged in Users can Delete their Posts ❌Once logged in Users can Like/Unlike Posts ❌Once logged in Users can Edit their Account
+❌Once logged in Users can Create Posts 
+
+❌Once logged in Users can Delete their Posts
+
+❌Once logged in Users can Like/Unlike Posts 
+
+❌Once logged in Users can Edit their Account
 
 ❌The UI prevents the modification/deletion of data the user did not create
 
-❌Application UI adheres to Minimum Release Standards of the CodeWorks Design Doc [https://www.figma.com/file/KMWM2FmoMCOIVVMwdlA6MF/Design-requirements?type=whiteboard&node-id=0-1&t=sOyxB8SGaLP9ImqK-0]
+❌Application UI adheres to Minimum Release Standards of the CodeWorks Design Doc 
+  ><https://www.figma.com/file/KMWM2FmoMCOIVVMwdlA6MF/Design-requirements?type=whiteboard&node-id=0-1&t=sOyxB8SGaLP9ImqK-0>
 
 5 Stretch Goals:
 

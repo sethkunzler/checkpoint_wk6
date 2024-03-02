@@ -2,7 +2,7 @@
   <header class="sticky-top">
     <Navbar />
   </header>
-  <main class="d-flex justify-content-end width25">
+  <main class="d-flex justify-content-center width25">
     <router-view />
   </main>
 </template>
@@ -24,8 +24,19 @@ export default {
 <style lang="scss">
 @import "./assets/scss/main.scss";
 
+
 :root{
   --main-height: calc(100vh - 32px - 64px);
+  --network-teal: rgb(57,196,198);
+}
+
+.bg-network-gradient {
+  background: rgb(57,196,198);
+  background: linear-gradient(90deg, rgba(57,196,198,1) 0%, rgba(126,218,207,1) 100%);
+  color: white;
+}
+.network-teal {
+  color: rgb(57,196,198);
 }
 
 .post-card-creator-picture {
