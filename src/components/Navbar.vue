@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-sm bg-network-gradient text-light px-3">
+  <nav class="navbar navbar-expand-sm bg-network-gradient text-light px-3 user-select-none">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-row align-items-center text-light selectable p-2 rounded">
         <img alt="NETWORK" src="../assets/img/network-logo.png" height="45"/>
@@ -31,7 +31,7 @@
 <script>
 import { onMounted, ref } from 'vue';
 import { loadState, saveState } from '../utils/Store.js';
-// import Login from './Login.vue';
+import Login from './Login.vue';
 export default {
   setup() {
 
@@ -50,7 +50,7 @@ export default {
       }
     }
   },
-  // components: { Login }
+  components: { Login }
 }
 </script>
 
