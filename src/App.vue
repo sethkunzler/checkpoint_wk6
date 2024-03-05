@@ -56,4 +56,8 @@ export default {
   font-weight: bold;
 }
 
+.italics {
+  font-style: italic;
+}
+
 </style>

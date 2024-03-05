@@ -10,15 +10,15 @@ Figma Refrence:
 
 ✅ The Home page displays all posts, login not required
 
-❌Clicking on a post's creator image navigates to that users Profile page 
+✅Clicking on a post's creator image navigates to that users Profile page 
   >https://sandbox.codeworksacademy.com/api/models/account 
 
-❌The Profile page shows only and all posts made by that user 
+✅The Profile page shows only and all posts made by that user 
   >https://sandbox.codeworksacademy.com/api/models/post
 
-❌The Profile page includes the users profile details (picture, name, bio, social media links, cover image, alumni status (graduated), class)
+✅The Profile page includes the users profile details (picture, name, bio, social media links, cover image, alumni status (graduated), class)
 
-❌Refreshing while on the profile page shows its required content
+✅Refreshing while on the profile page shows its required content
 
 ❌On Home and Profile pages, users can to navigate to 'older' or 'newer' posts if available
 

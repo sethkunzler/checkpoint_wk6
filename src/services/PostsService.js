@@ -7,7 +7,7 @@ import { api } from "./AxiosService.js"
 class PostsService {
   async getPosts() {
     const response = await api.get('api/posts')
-    logger.log('posts api response: ', response.data)
+    // logger.log('posts api response: ', response.data)
     const newPosts = response.data.posts.map(pojo => new Post(pojo)) 
     AppState.posts = newPosts
     // logger.log('posts in the appState', AppState.posts)
@@ -15,16 +15,16 @@ class PostsService {
 
   async setActiveAccount(profileId) {
     AppState.activeAccount = null
-    logger.log('active acount at start of getPostsbyCreator ID ', AppState.activeAccount)
+    // logger.log('active acount at start of getPostsbyCreator ID ', AppState.activeAccount)
     const response = await api.get(`api/profiles/${profileId}`)
-    logger.log('posts for profile', response.data)
+    // logger.log('posts for profile', response.data)
     AppState.activeAccount = new Account(response.data)
-    logger.log('Active account at the end of getPostsByCreatorId', AppState.activeAccount)
+    // logger.log('Active account at the end of getPostsByCreatorId', AppState.activeAccount)
   }
   async getPostsByCreatorId(profileId) {
     AppState.posts = null
     const response = await api.get(`api/profiles/${profileId}/posts`)
-    logger.log('posts for profile', response.data)
+    // logger.log('posts for profile', response.data)
     const newPosts = response.data.posts.map(pojo => new Post(pojo))
     AppState.posts = newPosts
   }

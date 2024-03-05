@@ -1,18 +1,21 @@
 <template>
   <div class="bg-light shadow my-2 p-2">
-    <div class="d-flex justify-content-start user-select-none">
-      <router-link :to="{ name: 'Profile', params: { profileId: post.creatorId }}">
+    <router-link :to="{ name: 'Profile', params: { profileId: post.creatorId }}">
+      <div class="d-flex text-dark justify-content-start user-select-none">
         <img class="post-card-creator-picture border border-subtle border-info" :src="post.creator.picture" :alt="post.creator.name">
         <div class="d-flex flex-column align-center text-center">
-          <p class="mb-0 ms-2 small bold"> {{ post.creator.name }} <i class="mdi mdi-account-school"></i> </p>
+          <p class="mb-0 ms-2 small bold"> 
+            {{ post.creator.name }} 
+            <span v-if="post.creator.graduated" class="mdi mdi-account-school"></span>
+          </p>
           <p class="mb-0 ms-2 small">{{ post.createdAt.toLocaleDateString() + ' ' + post.createdAt.toLocaleTimeString() }} </p>
         </div>
-      </router-link>
-    </div>
+      </div>
+    </router-link>
     <div>
       <p>{{ post.body }}</p>
     </div>
-      <img class="post-img rounded me-3 user-select-none" 
+      <img v-if="post.imgUrl" class="post-img rounded me-3 user-select-none"
       :src="post.imgUrl" 
       :alt="'image from ' + post.creator.name" 
       :title="'image from ' + post.creator.name">
@@ -30,6 +33,7 @@
 <script>
 import { computed } from "vue";
 import { Post } from "../models/Post.js";
+import { AppState } from "../AppState.js";
 
 export default {
   props: {
