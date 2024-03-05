@@ -15,7 +15,7 @@ class PostsService {
 
   async setActiveAccount(profileId) {
     AppState.activeAccount = null
-    // logger.log('active acount at start of getPostsbyCreator ID ', AppState.activeAccount)
+    // logger.log('active account at start of getPostsByCreatorId ', AppState.activeAccount)
     const response = await api.get(`api/profiles/${profileId}`)
     // logger.log('posts for profile', response.data)
     AppState.activeAccount = new Account(response.data)
@@ -28,7 +28,13 @@ class PostsService {
     const newPosts = response.data.posts.map(pojo => new Post(pojo))
     AppState.posts = newPosts
   }
-
+  async changePage(pageNumber) {
+    const response = await api.get(`api/posts?page=${pageNumber}`)
+    let posts = response.data.posts.map(pojo => new Post(pojo))
+    AppState.posts = posts
+    AppState.currentPage = response.data.page
+    AppState.totalPages = response.data.pages
+  }
 }
 
 

@@ -3,11 +3,15 @@
     <section class="row">
       <div class="col-md-12 user-select-none">
         <h1>Posts</h1>
-        <!-- TODO pagination! -->
+        <!-- FIXME pagination! -->
         <!-- <div class="d-flex justify-content-between align-items-center">
-          <span class="mdi mdi-arrow-left fs-2 rounded-start selectable px-5"></span>
+          <RouterLink to="{query: {page: currentPage - 1}}" :class="{disabled: currentPage == 1}">
+            <span class="mdi mdi-arrow-left fs-2 rounded-start px-5"></span>
+          </RouterLink>
           <span>## out of ##</span>
-          <span class="mdi mdi-arrow-right fs-2 rounded-end selectable px-5"></span>
+          <RouterLink to="{query: {page: currentPage + 1}}" :class="{disabled: currentPage == totalPages}">
+          <span class="mdi mdi-arrow-right fs-2 rounded-end px-5"></span>
+          </RouterLink>
         </div> -->
       </div>
       <div v-for="post in posts" :key="post.id" class="col-12">
@@ -40,33 +44,63 @@
 </template>
 
 <script>
-import { computed, onMounted } from "vue";
+import { computed, onMounted, watch } from "vue";
 import Pop from "../utils/Pop.js";
 import { postsService } from "../services/PostsService.js"
 import { AppState } from "../AppState.js"
 import PostCard from "../components/PostCard.vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter, RouterLink } from "vue-router";
+import { logger } from "../utils/Logger.js";
 
 export default {
-    setup() {
-        onMounted(() => {
-            console.log('home page mounted');
-            getPosts();
-        });
-        async function getPosts() {
-            try {
-                await postsService.getPosts();
-            }
-            catch (error) {
-                Pop.error(error);
-            }
+  setup() {
+    const route = useRoute;
+    const router = useRouter;
+    onMounted(() => {
+      // console.log('home page mounted');
+      getPosts();
+    });
+    async function getPosts() {
+      try {
+        await postsService.getPosts();
+      }
+      catch (error) {
+        Pop.error(error);
+      }
+    }
+    async function changePage(pageNumber){
+      logger.log('trying to change page')
+        try {
+          await postsService.changePage(pageNumber)
+          logger.log('current page number', AppState.currentPage)
+        } catch (error) {
+          Pop.error(error)
         }
-        const route = useRoute;
-        return {
-          posts: computed(() => AppState.posts)
-        };
-    },
-    components: { PostCard }
+      }
+    
+      // FIXME pagination "does not recognize 'query' - page is undefined"
+    // watch(route, ()=>{
+    //   logger.log('this is the route', route)
+    //   const pageNumber = route.query.page
+    //   logger.log('route changed!', pageNumber)
+    //   if(!pageNumber){
+    //     getPosts()
+    //   } else {
+    //     changePage(pageNumber)
+    //   }
+    //   },
+    //   {immediate: true}
+    // )
+
+
+    return {
+      posts: computed(() => AppState.posts),
+      currentPage: computed(()=> AppState.currentPage),
+      totalPages: computed(()=> AppState.totalPages),
+      changePage
+    };
+  },
+  components: { PostCard, RouterLink }
 }
 </script>
 
