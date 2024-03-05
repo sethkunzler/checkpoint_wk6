@@ -2,7 +2,7 @@
   <header class="sticky-top">
     <Navbar />
   </header>
-  <main class="d-flex justify-content-center width25">
+  <main class="d-flex justify-content-center width25 bg-backdrop">
     <router-view />
   </main>
 </template>
@@ -28,11 +28,17 @@ export default {
 :root{
   --main-height: calc(100vh - 32px - 64px);
   --network-teal: rgb(57,196,198);
+  --backdrop-teal: #6dd5cd; 
+  --light-teal: #8ADDD3;
+}
+
+.bg-backdrop {
+  background-color: var(--light-teal);
 }
 
 .bg-network-gradient {
-  background: rgb(57,196,198);
-  background: linear-gradient(90deg, rgba(57,196,198,1) 0%, rgba(126,218,207,1) 100%);
+  background: rgb(57, 196, 198);
+  background: linear-gradient(90deg, rgba(57,196,198,1) 0%, rgb(126, 218, 207) 100%);
   color: white;
 }
 .network-teal {

@@ -1,13 +1,14 @@
 <template>
-  <div class="posts-display-window container bg-light text-dark">
+  <div class="posts-display-window container bg-light text-dark shadow">
     <section class="row">
       <div class="col-md-12 user-select-none">
         <h1>Posts</h1>
-        <div class="d-flex justify-content-between align-items-center">
+        <!-- TODO pagination! -->
+        <!-- <div class="d-flex justify-content-between align-items-center">
           <span class="mdi mdi-arrow-left fs-2 rounded-start selectable px-5"></span>
           <span>## out of ##</span>
           <span class="mdi mdi-arrow-right fs-2 rounded-end selectable px-5"></span>
-        </div>
+        </div> -->
       </div>
       <div v-for="post in posts" :key="post.id" class="col-12">
         <PostCard :post="post" />
@@ -44,9 +45,14 @@ import Pop from "../utils/Pop.js";
 import { postsService } from "../services/PostsService.js"
 import { AppState } from "../AppState.js"
 import PostCard from "../components/PostCard.vue";
+import { useRoute } from "vue-router";
 
 export default {
     setup() {
+        onMounted(() => {
+            console.log('home page mounted');
+            getPosts();
+        });
         async function getPosts() {
             try {
                 await postsService.getPosts();
@@ -55,10 +61,7 @@ export default {
                 Pop.error(error);
             }
         }
-        onMounted(() => {
-            console.log('home page mounted');
-            getPosts();
-        });
+        const route = useRoute;
         return {
           posts: computed(() => AppState.posts)
         };

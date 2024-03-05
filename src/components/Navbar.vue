@@ -11,17 +11,18 @@
     </button>
     <div class="collapse navbar-collapse text-center" id="navbarText">
       <ul class="navbar-nav me-auto">
-        <li>
+        <!-- <li>
           <router-link :to="{ name: 'About' }" class="btn text-light lighten-30 selectable text-uppercase">
             About
           </router-link>
-        </li>
+        </li> -->
       </ul>
       <!-- LOGIN COMPONENT HERE -->
-      <div>
-        <button class="btn text-light" @click="toggleTheme">
+      <div> 
+        <!-- TODO Light and dark theme changes certain elements but not all and messes it up accessibility pretty bad; things don't look good. -->
+        <!-- <button class="btn text-light" @click="toggleTheme">
           <i class="mdi" :class="theme == 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'"></i>
-        </button>
+        </button> -->
       </div>
       <Login />
     </div>
